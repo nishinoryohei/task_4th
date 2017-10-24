@@ -1,0 +1,17 @@
+<div class="section">
+	<h1 class="post-main-title">新規投稿</h1>
+	<div class="content">
+		<% if @post.errors.any? %>
+			<% @post.errors.full_messages.each do |message| %>
+			<p class="error"><%= message %></p>
+			<% end %>
+		<% end %>
+		<%= form_for(@post) do |f| %>
+			<%= f.text_field :title,placeholder: "タイトル",class: "post-form" %>
+			<%= f.text_area :body,placeholder: "本文",class: "post-form-body" %>
+			<p>写真を投稿する</p>
+			<%= f.file_field :image, class: "post-form-img" %>
+			<%= f.submit '投稿', class: "post-form-submit"%>
+		<% end %>
+	</div>
+</div>

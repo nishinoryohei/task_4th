@@ -1,0 +1,27 @@
+<div class="section">
+	<div class="content">
+		<div class="show-name"><%= link_to @post.user.name ,user_path(@post.user_id)%><%= @post.user.email %></div>
+		<h1 class="show-title"><%= @post.title %></h1>
+			<% if @post.image? %>
+				<%= image_tag @post.image.url, class: "post-img" %>
+			<% end %>
+		<div class="show-body"><%= @post.body %></div>
+		<% if current_user.id == @post.user_id %>
+			<%= link_to '編集', edit_post_path, class: "edit" %>
+		<% end %>
+	</div>
+		<div class="comment-area">
+			<% @post.comments.each do |comment| %>
+				<P><%= comment.user_name %></P>
+				<p><%= comment.body %></p>
+			<% if current_user.name == comment.user_name %>
+					<%= link_to '削除', post_comment_path(@post,comment), method: :delete %>
+			<% end %>
+			<% end %>
+			<%= form_for [@post, @comment] do |f| %>
+				<%= f.text_area :body, class: "comment-form" %>
+				<%= f.submit 'コメント', class: "comment-submit"%>
+			<% end %>
+		</div>
+	</div>
+</div>

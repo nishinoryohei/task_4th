@@ -1,0 +1,26 @@
+<div class="section">
+	<div class="user-show">
+		<h1 class="user-name"><%= @user.name %>/フォロワー一覧</h1>
+		<div class="user-favo-follow">
+		<p class="user-item">投稿数<%= @user.posts.count %></p>
+		<p class="user-item"><%= link_to 'いいね' ,favorites_user_path(@user) %><%= @user.favorites.count %></p>
+		<p class="user-item"><%= link_to 'フォロー' ,follows_user_path(@user) %><%= @user.followings.count %></p>
+		<p class="user-item"><%= link_to 'フォロワー',followers_user_path(@user) %><%= @user.followers.count %> </p>
+		</div>
+		<% @user.followers.each do |follow| %>
+		<div class="follow-container clearfix">
+			<% if follow.image? %>
+				<%= image_tag follow.image.url, class: "follow-img" %>
+			<% else %>
+				<div class="alt">画像が<br>ありません</div>
+			<% end %>
+			<div class="other-user"><%= link_to follow.name, user_path(follow) %></div>
+			<% if follow.followed_by? current_user %>
+			<div class="user-follow settled"><%= link_to 'フォロー解除', user_relationships_path(follow),method: :delete %></div>
+		<% else %>
+			<div class="user-follow"><%= link_to 'フォロー', user_relationships_path(follow),method: :post %></div>
+		<% end %>
+		</div>
+	<% end %>
+	</div>
+</div>

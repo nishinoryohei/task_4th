@@ -1,0 +1,14 @@
+<div class="section">
+	<div class="content">
+	<h1 class="edit-name"><%= @user.name %></h1>
+	<%= form_for(@user) do |f| %>
+		<p>名前</p>
+		<%= f.text_field :name , class: "user-form"%>
+		<P>トップ画像</P>
+		<%= f.file_field :image %>
+		<p>プロフィール</p>
+		<%= f.text_area :body , class: "user-form-body" %>
+		<%= f.submit '保存', class: "user-form-submit" %>
+	<% end %>
+	</div>
+</div>

@@ -1,0 +1,11 @@
+<div class="section">
+	<h1 class="post-main-title">投稿編集</h1>
+	<div class="content">
+		<%= form_for(@post) do |f| %>
+			<%= f.text_field :title,class: "post-form" %>
+			<%= f.text_area :body,class: "post-form-body" %>
+			<%= f.submit '保存', class: "post-form-submit"%>
+		<% end %>
+	<div class="delete"><%= link_to '削除', post_path,method: :delete %></div>
+	</div>
+</div>

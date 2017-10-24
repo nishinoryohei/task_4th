@@ -1,0 +1,103 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-show{
+	width: 60%;
+	padding: 30px;
+	margin: 0 auto;
+	background-color: #fff;
+}
+.user-name{
+	font-size: 3rem;
+	padding-left: 20px;
+}
+.user-img{
+	width: 400px;
+	display: block;
+	margin: 0 auto;
+}
+.user-body{
+	margin-top: 20px;
+	padding: 20px;
+	border:2px solid #d3d3d3;
+	border-radius: 20px;
+}
+.user-edit{
+	float: right;
+}
+.user-favo-follow{
+	padding: 5px 0;
+	margin: 30px 50px;
+	text-align: center;
+	border: 2px solid #d3d3d3;
+}
+.user-item{
+	display: inline-block;
+	padding: 0 20px;
+}
+.user-post{
+	padding: 20px 0;
+}
+.user-favo{
+	font-size: 3rem;
+}
+.user-index-item{
+	padding: 20px 0;
+}
+.other-user{
+	display: inline-block;
+	margin: 0 20px;
+	font-size: 2.2rem;
+}
+.user-follow{
+	margin-right: 50px;
+	padding:3px 0;
+	width: 100px;
+	border-radius: 10px;
+	background-color: #87ceeb;
+	display: inline-block;
+	text-align: center;
+	font-size: 1.4rem;
+}
+.user-follow a{
+	color: #fff;
+}
+.user-form{
+	display: block;
+	width: 100%;
+	padding: 0 10px;
+	margin: 30px 0;
+}
+.user-form-body{
+	display: block;
+	width: 100%;
+	padding: 0 10px;
+	margin: 30px 0;
+	height: 200px;
+}
+.user-form-submit{
+	width: 100px;
+	display: block;
+	margin: 30px auto 0;
+	padding: 5px 0 ;
+	background-color: #87ceeb;
+	border-style: none;
+	border-radius: 10px;
+	font-size: 1.6rem;
+	color: #fff;
+}
+.user-form-submit:hover{
+	cursor: pointer;
+	cursor: hand;
+}
+.edit-name{
+	padding: 20px 0 0 40px;
+}
+.edit_user{
+	padding: 20px;
+}
+.follow-img{
+	width: 50px;
+	height: 50px;
+}

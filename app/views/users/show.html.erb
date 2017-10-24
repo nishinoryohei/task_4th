@@ -1,0 +1,30 @@
+<div class="section">
+	<div class="user-show">
+		<div class="profile clearfix">
+		<h1 class="user-name"><%= @user.name %></h1>
+		<% if @user.image? %>
+			<%= image_tag @user.image.url, class: "user-img" %>
+		<% else %>
+			<P>画像がありません</P>
+		<% end %>
+		<p class="user-body"><%= @user.body %></p>
+		<% if current_user.id == @user.id %>
+			<%= link_to 'プロフィールを編集する', edit_user_path(@user),class: "user-edit" %>
+		<% end %>
+		</div>
+		<div class="user-content">
+			<div class="user-favo-follow">
+			<div class="user-item">投稿数<%= @user.posts.count %></div>
+			<div class="user-item"><%= link_to 'いいね' ,favorites_user_path(@user) %><%= @user.favorites.count %></div>
+			<div class="user-item"><%= link_to 'フォロー' ,follows_user_path(@user) %><%= @user.followings.count %></div>
+			<div class="user-item"><%= link_to 'フォロワー',followers_user_path(@user) %><%= @user.followers.count %></div>
+		</div>
+			<div class="user-post">
+			<% @user.posts.each do |post| %>
+				<p><%= link_to post.title, post_path(post.id) %></p>
+				<p><%= post.body %></p>
+			<% end %>
+			</div>
+		</div>
+	</div>
+</div>

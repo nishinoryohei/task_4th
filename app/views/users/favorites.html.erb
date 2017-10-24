@@ -1,0 +1,17 @@
+<div class="section">
+	<div class="user-show">
+		<h1 class="user-name"><%= @user.name %></h1>
+		<p class="user-favo">いいね
+			<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+			<%= @user.favorites.count %></p>
+
+		<% if @user.favorites.empty? %>
+			<p>まだお気に入りされた投稿はありません</p>
+		<% end %>
+		<% @user.favorites.map{|f| f.post}.each do |post| %>
+			<p><%= post.user.name %></p>
+			<P><%= link_to post.title, post_path(post) %></P>
+			<p><%= post.body %></p>
+		<% end %>
+	</div>
+</div>
